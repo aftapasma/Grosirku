@@ -46,13 +46,6 @@
             <x-input-error :messages="$errors->get('telp')" class="mt-2" />
         </div>
 
-        <!-- Role -->
-        <div class="mt-4">
-            <x-input-label for="role" :value="__('Role')" />
-            <x-text-input id="role" class="block mt-1 w-full" type="number" name="role" :value="old('role')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('role')" class="mt-2" />
-        </div>
-
         <!-- Address -->
         <div class="mt-4">
             <x-input-label for="address" :value="__('Alamat')" />
