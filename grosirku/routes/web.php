@@ -30,21 +30,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    //Admin Controller
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/adminOrder', [AdminController::class, 'show'])->name('adminOrder');
+    Route::get('/adminUpdate', [AdminController::class, 'update'])->name('adminUpdate');
+    //Keranjang
+    Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
+    //Pembayaran
+    Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
 });
 
 //User Controller
-//Admin Controller
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-Route::get('/adminOrder', [AdminController::class, 'show'])->name('adminOrder');
-Route::get('/adminUpdate', [AdminController::class, 'update'])->name('adminUpdate');
 
-//Keranjang
-Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
 
 //Produk
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 
-//Pembayaran
-Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
 
 require __DIR__.'/auth.php';
