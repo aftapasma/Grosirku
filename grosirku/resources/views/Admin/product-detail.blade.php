@@ -11,6 +11,5 @@
     <img src="{{$product->image ? asset('storage/' . $product->image) : 'https://picsum.photos/200/100'}}" alt="">
     <p>{{$product->description}}</p>
     <p>{{$product->price}}</p>
-    <a href="/products/{{$product->id}}/edit"></a>
 </body>
 </html>
