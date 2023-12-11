@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-<h1>pesanan</h1>
+    Sama kaya admin tapi ada fitur masukin keranjang sama gak bisa edit produk
 </body>
 </html>

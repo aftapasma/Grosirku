@@ -12,7 +12,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+
+            if ($userRole === 0) {
+                return view('admin.home');
+            }
+        } 
+        
+        return view('customer.home');
     }
 
     /**

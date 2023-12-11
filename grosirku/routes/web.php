@@ -6,6 +6,8 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/masuk', function () {
     return view('welcome');
 });
 
@@ -27,24 +29,24 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    //profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    //Admin Controller
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-    Route::get('/adminOrder', [AdminController::class, 'show'])->name('adminOrder');
-    Route::get('/adminUpdate', [AdminController::class, 'update'])->name('adminUpdate');
+    //admin manage products
+    Route::get('/products/create', [ProductController::class, 'create']);
+    Route::post('/productStore', [ProductController::class, 'store']);
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
+    Route::put('/products/{product}', [ProductController::class, 'update']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     //Keranjang
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     //Pembayaran
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
 });
 
-//User Controller
-
-
-//Produk
-Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
-
+//all show products
+Route::get('/', [ProductController::class, 'index']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
 
 require __DIR__.'/auth.php';
