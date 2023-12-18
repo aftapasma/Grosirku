@@ -13,20 +13,38 @@ class ProductController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 return view('admin.products-list', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
             }
-        } 
-        
-        return view('customer.home', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+        }
 
+        // $randomOrder = Product::latest()->get();
+        // $latest = Product::inRandomOrder()->get();
+        
+        // return (['products' => $randomOrder, $latest]);
+
+        return view('customer.home', ['products' => Product::inRandomOrder()->get()]);
+
+    }
+
+    public function shop()
+    {
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+
+            if ($userRole != 'admin') {
+                return view('customer.shop', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+            }
+        }
+        
+        return view('customer.shop', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
     }
 
     public function show(Product $product) {
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 return view('admin.product-detail', ['product' => $product]);
             }
         } 
@@ -39,7 +57,7 @@ class ProductController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 return view('admin.add-product');
             }
         }
@@ -51,7 +69,7 @@ class ProductController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 $formFields = $request->validate([
                     'name' => 'required',
                     'description' => 'required',
@@ -71,13 +89,14 @@ class ProductController extends Controller
         } 
 
         // return redirect('/');
+        
     }
 
     public function edit(Product $product) {
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 return view('admin.edit-product', ['product' => $product]);
             }
         }
@@ -89,7 +108,7 @@ class ProductController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 $formFields = $request->validate([
                     'name' => 'required',
                     'description' => 'required',
@@ -115,7 +134,7 @@ class ProductController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
+            if ($userRole === 'admin') {
                 $product->delete();
                 return redirect('/');
             }

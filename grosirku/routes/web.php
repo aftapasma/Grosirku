@@ -3,11 +3,11 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +48,9 @@ Route::middleware('auth')->group(function () {
 //all show products
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
+Route::get('/products', [ProductController::class, 'shop']);
+//wishlist
+Route::get('/wishlist', [WishlistController::class, 'index']);
+
 
 require __DIR__.'/auth.php';
