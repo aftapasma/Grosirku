@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    Sama kaya admin tapi ada fitur masukin keranjang sama gak bisa edit produk
+    <h1>{{$product->name}}</h1>
+    <img src="{{$product->image ? asset('storage/' . $product->image) : 'https://picsum.photos/200/100'}}" alt="">
+    <p>{{$product->description}}</p>
+    <p>{{$product->price}}</p>
+
+    <form action="/wishlistStore" method="post">
+        @csrf
+        <input type="hidden" name="product_id" value="{{$product->id}}">
+        <button type="submit">masukkan wishlist</button>
+    </form>
 </body>
 </html>

@@ -50,7 +50,9 @@ Route::get('/', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/products', [ProductController::class, 'shop']);
 //wishlist
-Route::get('/wishlist', [WishlistController::class, 'index']);
+Route::get('/wishlists', [WishlistController::class, 'index']);
+Route::post('/wishlistStore', [WishlistController::class, 'store']);
+Route::delete('/wishlists/{wishlist}', [WishlistController::class, 'destroy']);
 
 
 require __DIR__.'/auth.php';
