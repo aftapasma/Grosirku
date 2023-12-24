@@ -6,6 +6,7 @@ use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 
@@ -20,13 +21,13 @@ use App\Http\Controllers\WishlistController;
 |
 */
 
-Route::get('/masuk', function () {
-    return view('welcome');
-});
+// Route::get('/masuk', function () {
+//     return view('welcome');
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     //profile
@@ -39,20 +40,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
     Route::put('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+    //admin manage transactions
+    Route::get('/transactions', [TransactionController::class, 'index']);
+    Route::put('/transactions/{transaction}', [TransactionController::class, 'update']);
     //Keranjang
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     //Pembayaran
     Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
+    //wishlist
+    Route::get('/wishlists', [WishlistController::class, 'index']);
+    Route::post('/wishlistStore', [WishlistController::class, 'store']);
+    Route::delete('/wishlists/{wishlist}', [WishlistController::class, 'destroy']);
 });
 
 //all show products
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/products', [ProductController::class, 'shop']);
-//wishlist
-Route::get('/wishlists', [WishlistController::class, 'index']);
-Route::post('/wishlistStore', [WishlistController::class, 'store']);
-Route::delete('/wishlists/{wishlist}', [WishlistController::class, 'destroy']);
+
 
 
 require __DIR__.'/auth.php';

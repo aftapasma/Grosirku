@@ -16,6 +16,7 @@ class Product extends Model
         'stock',
         'price',
         'category',
+        'sold',
         'created_at',
         'updated_at'
     ];

@@ -18,14 +18,14 @@ class ProductController extends Controller
             }
         }
 
-        // $randomOrder = Product::latest()->get();
-        // $latest = Product::inRandomOrder()->get();
+        $products1 = Product::orderByDesc('sold')->get();
+        $products2 = Product::inRandomOrder()->get();
         
-        // return (['products' => $randomOrder, $latest]);
-
-        return view('customer.home', ['products' => Product::inRandomOrder()->get()]);
+        return view('customer.home', compact('products1', 'products2'));
 
     }
+
+    
 
     public function shop()
     {
@@ -77,6 +77,8 @@ class ProductController extends Controller
                     'price' => 'required',
                     'category' => 'required'
                 ]);
+
+                $formFields['sold'] = 0;
         
                 if ($request->hasFile('image')) {
                     $formFields['image'] = $request->file('image')->store('images', 'public');

@@ -30,7 +30,7 @@
                 accusantium perspiciatis, sapiente
                 magni eos dolorum ex quos dolores odio</p>
             <div class="mt-12">
-                <a href="#" class="bg-primary border border-primary text-white px-8 py-3 font-medium 
+                <a href="/products" class="bg-primary border border-primary text-white px-8 py-3 font-medium 
                     rounded-md hover:bg-transparent hover:text-primary">Shop Now</a>
             </div>
         </div>
@@ -80,122 +80,11 @@
     <div class="container pb-16">
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Terlaris</h2>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Beras Rojolele</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp70.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Bimoli 2 Liter</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp35.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Gulaku 1kg</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp15.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Tepung Segitiga 1kg</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp10.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
+            @foreach ($products1 as $index => $product)
+                @if ($index < 4)
+                    <x-product-item :product="$product" />
+                @endif
+            @endforeach
         </div>
     </div>
     <!-- Terlaris -->
@@ -212,122 +101,11 @@
     <div class="container pb-16">
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Rekomendasi</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Beras Rojolele</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp70.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Bimoli 2 Liter</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp35.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Gulaku 1kg</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp15.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
-            <div class="bg-white shadow rounded overflow-hidden group">
-                <div class="relative">
-                    <img src="assets/images/products/product1.jpg" alt="product 1" class="w-full">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                    justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="lihat produk">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <a href="#"
-                            class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-                            title="tambahkan ke wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="pt-4 pb-3 px-4">
-                    <a href="#">
-                        <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">Segitiga 1kg</h4>
-                    </a>
-                    <div class="flex items-baseline mb-1 space-x-2">
-                        <p class="text-xl text-primary font-semibold">Rp10.000</p>
-                    </div>
-                </div>
-                <a href="#"
-                    class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">Tambahkan
-                ke Keranjang</a>
-            </div>
+            @foreach ($products2 as $index => $product)
+                @if ($index < 4)
+                    <x-product-item :product="$product" />
+                @endif
+            @endforeach
         </div>
     </div>
     <!-- rekomendasi -->

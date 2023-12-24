@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+  <x-navigation />
 <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-md text-center">
       <h2 class="font-serif text-2xl font-bold sm:text-3xl">Fresh Fruits &amp; Vegetables</h2>

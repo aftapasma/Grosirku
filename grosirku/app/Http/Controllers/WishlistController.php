@@ -29,13 +29,32 @@ class WishlistController extends Controller
             $userRole = auth()->user()->role;
             $userId = auth()->user()->id;
 
+            
+
             if ($userRole === 'customer') {
-                $formFields['user_id'] = $userId;
-                $formFields['product_id'] = $request->input('product_id');
-
-                Wishlist::create($formFields);
-
-                return redirect()->back();
+                if (auth()->check()) {
+                    $userRole = auth()->user()->role;
+                    $userId = auth()->user()->id;
+            
+                    if ($userRole === 'customer') {
+                        $productId = $request->input('product_id');
+            
+                        $isProductInWishlist = Wishlist::where('user_id', $userId)
+                            ->where('product_id', $productId)
+                            ->exists();
+            
+                        if (!$isProductInWishlist) {
+                            $formFields['user_id'] = $userId;
+                            $formFields['product_id'] = $productId;
+            
+                            Wishlist::create($formFields);
+            
+                            return redirect()->back();
+                        } else {
+                            return redirect()->back();
+                        }
+                    }
+                }
             }
         }
     }
