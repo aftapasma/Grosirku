@@ -19,22 +19,15 @@ class TransactionController extends Controller
                 $transactions->load('product');
 
                 return view('customer.transactions', ['transactions' => $transactions]);
-                // return view('customer.transactions', ['transactions' => Transaction::orderBy('id')->get()]);
             }
         }
     }
 
     public function update(Request $request, Transaction $transaction) {
         if (auth()->check()) {
-            $userRole = auth()->user()->role;
-
-            if ($userRole === 'admin') {
-                $formFields['status'] = $request->status;
-        
-                $transaction->update($formFields);
-        
-                return redirect('/transactions');
-            }
+            $formFields['status'] = $request->status;
+            $transaction->update($formFields);
+            return redirect('/transactions');
         } 
     }
 }
