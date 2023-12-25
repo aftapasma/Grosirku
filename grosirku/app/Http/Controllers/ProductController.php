@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Produk;
+use App\Models\Transaction;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,8 @@ class ProductController extends Controller
             $userRole = auth()->user()->role;
 
             if ($userRole === 'admin') {
-                return view('admin.products-list', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+                return view('admin.home', ['transactions' => Transaction::orderBy('id')->get()]);
+                // return view('admin.products-list', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
             }
         }
 
