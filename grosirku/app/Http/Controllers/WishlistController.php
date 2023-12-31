@@ -25,13 +25,6 @@ class WishlistController extends Controller
     }
 
     public function store(Request $request) {
-        if (auth()->check()) {
-            $userRole = auth()->user()->role;
-            $userId = auth()->user()->id;
-
-            
-
-            if ($userRole === 'customer') {
                 if (auth()->check()) {
                     $userRole = auth()->user()->role;
                     $userId = auth()->user()->id;
@@ -55,8 +48,8 @@ class WishlistController extends Controller
                         }
                     }
                 }
-            }
-        }
+            
+        
     }
 
     public function destroy(Wishlist $wishlist) {

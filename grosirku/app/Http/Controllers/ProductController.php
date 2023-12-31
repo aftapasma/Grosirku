@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Transaction;
+use Illuminate\Support\Carbon;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,19 @@ class ProductController extends Controller
             $userRole = auth()->user()->role;
 
             if ($userRole === 'admin') {
-                return view('admin.home', ['transactions' => Transaction::orderBy('id')->get()]);
+                $today = Carbon::today();
+
+                $product = Product::orderByDesc('sold')->get();
+
+                $transactions = Transaction::whereDate('created_at', $today)
+                    ->orderBy('id')
+                    ->get();
+
+                return view('admin.home', [
+                    'transactions' => $transactions,
+                    'products' => $product
+                ]);
+                // return view('admin.home', ['transactions' => Transaction::orderBy('id')->get()]);
                 // return view('admin.products-list', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
             }
         }

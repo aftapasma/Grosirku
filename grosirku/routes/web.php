@@ -45,13 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/transactions/{transaction}', [TransactionController::class, 'update']);
     //Keranjang
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
-    Route::post('/tambahKeranjang', [KeranjangController::class, 'addToCart'])->name('addToCart');
-    Route::put('/product/increase/{id}', [KeranjangController::class, 'increaseQuantity'])->name('increase');
-    Route::put('/product/decrease/{id}', [KeranjangController::class, 'decreaseQuantity'])->name('decrease');
-    Route::delete('/hapusKeranjang/{id}', [KeranjangController::class, 'remove'])->name('hapusKeranjang');
     //Pembayaran
-    Route::post('/pembayaran', [PembayaranController::class, 'checkout'])->name('pembayaran');
-    Route::get('/sukses', [KeranjangController::class, 'clearCart'])->name('sukses');
+    Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran');
     //wishlist
     Route::get('/wishlists', [WishlistController::class, 'index']);
     Route::post('/wishlistStore', [WishlistController::class, 'store']);
@@ -61,7 +56,7 @@ Route::middleware('auth')->group(function () {
 //all show products
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
-Route::get('/products', [ProductController::class, 'shop']);
+Route::get('/shop', [ProductController::class, 'shop']);
 
 
 
