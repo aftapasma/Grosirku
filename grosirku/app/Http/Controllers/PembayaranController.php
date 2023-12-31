@@ -25,15 +25,17 @@ class PembayaranController extends Controller
         $carts = Cart::where('user_id', $userId)->get();
         $carts->load('product');
         $total_price = 0;
+        $total = 0;
         foreach ($carts as $cart) {
             $product = \App\Models\Product::find($cart->product_id);
             $total_price += $cart->quantity * $product->price;
+            $total = $cart->quantity * $product->price;
 
             Transaction::create([
                 'user_id'     => $userId,
                 'product_id'  => $product->id,
                 'quantity'    => $cart->quantity,
-                'total_price' => $total_price,
+                'total_price' => $total,
                 'status'      => 'menunggu verifikasi',
             ]);
         }
