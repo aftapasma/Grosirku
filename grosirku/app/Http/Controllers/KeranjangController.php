@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Keranjang;
 use Illuminate\Http\Request;
@@ -14,61 +15,94 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        $product = DB::table('cart')
-        ->join('users', 'cart.user_id', '=', 'users.id')
-        ->join('products', 'cart.product_id', '=', 'products.id')
-        ->select('cart.*', 'users.*', 'products.*')
-        ->get();
-        return view('Keranjang.keranjangView', compact('product'));
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+            $userId = auth()->user()->id;
+
+            if ($userRole === 'customer') {
+                $carts = Cart::where('user_id', $userId)->get();
+                $carts->load('product');
+
+                return view('keranjang.keranjangView', ['carts' => $carts]);
+            }
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function addToCart($id)
+    public function addToCart(Request $request)
     {
-        $product = Product::findOrFail($id);
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+            $userId = auth()->user()->id;
 
-        $cart = session()->get('cart', []);
 
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        }  else {
-            $cart[$id] = [
-                "name" => $product->name,
-                "name_product" => $product->name_product,
-                "quantity" => 1
-            ];
+
+            if ($userRole === 'customer') {
+                        $productId = $request->input('product_id');
+
+                        $isProductInCart = Cart::where('user_id', $userId)
+                            ->where('product_id', $productId)
+                            ->exists();
+
+                        if (!$isProductInCart) {
+                            $formFields['user_id'] = $userId;
+                            $formFields['product_id'] = $productId;
+                            $formFields['quantity'] = 1;
+
+                            Cart::create($formFields);
+
+                            return redirect()->back();
+                        } else {
+                            return redirect()->back();
+                        }
+                }
         }
-
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product add to cart successfully!');
     }
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request)
+
+    public function increaseQuantity($id)
     {
-        if($request->id && $request->quantity){
-            $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            session()->flash('success', 'Cart successfully updated!');
+        $carts = Cart::findOrFail($id);
+        $carts->quantity += 1;
+        $carts->save();
+
+        return redirect()->back();
+    }
+
+    public function decreaseQuantity($id)
+    {
+        $carts = Cart::findOrFail($id);
+
+        if ($carts->quantity > 1) {
+            $carts->quantity -= 1;
+            $carts->save();
+        } else {
+            $carts->delete();
         }
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function remove(Request $request)
-    {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Product successfully removed!');
+    public function remove($id) {
+    if (auth()->check()) {
+        $userRole = auth()->user()->role;
+        $carts = Cart::findOrFail($id);
+
+        if ($userRole === 'customer') {
+            $carts->delete();
+            return redirect()->back();
         }
+    }
+}
+
+    public function clearCart() {
+        $userId = auth()->user()->id;
+        Cart::where('user_id', $userId)->delete();
+
+        return redirect('/');
     }
 }
