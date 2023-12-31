@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
 //all show products
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
-Route::get('/shop', [ProductController::class, 'shop']);
+Route::get('/products', [ProductController::class, 'shop']);
 
 
 
