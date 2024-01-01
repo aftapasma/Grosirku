@@ -33,26 +33,41 @@ class ProductController extends Controller
             }
         }
 
-        $products1 = Product::orderByDesc('sold')->get();
-        $products2 = Product::inRandomOrder()->get();
-        
+        $products1 = Product::where('stock', '>', 0)
+        ->orderByDesc('sold')
+        ->get();
+    
+        $products2 = Product::where('stock', '>', 0)
+            ->inRandomOrder()
+            ->get();
+
         return view('customer.home', compact('products1', 'products2'));
 
     }
 
     
 
-    public function shop()
+    public function shop(Request $request)
     {
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
             if ($userRole != 'admin') {
-                return view('customer.shop', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+                return view('customer.shop', [
+                    'products' => Product::where('stock', '>', 0)
+                        ->inRandomOrder()
+                        ->filter(request(['category', 'search']))
+                        ->get(),
+                ]);
             }
         }
         
-        return view('customer.shop', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+        return view('customer.shop', [
+            'products' => Product::where('stock', '>', 0)
+                ->inRandomOrder()
+                ->filter(request(['category', 'search']))
+                ->get(),
+        ]);
     }
 
     public function show(Product $product) {

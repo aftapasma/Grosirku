@@ -27,10 +27,7 @@ class Product extends Model
         }
 
         if ($filters['category'] ?? false) {
-        //     $query->where('category', 'like', '%' . request('category') . '%');
-        // }
-            $categories = explode(',', request('category'));
-            $query->whereIn('category', $categories);
+            $query->where('category', 'like', '%' . request('category') . '%');
         }
     }
 }
