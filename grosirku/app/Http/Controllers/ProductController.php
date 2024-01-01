@@ -45,7 +45,9 @@ class ProductController extends Controller
 
     }
 
-    
+    public function productList() {
+                return view('admin.products-list', ['products' => Product::inRandomOrder()->get()]);
+    }
 
     public function shop(Request $request)
     {

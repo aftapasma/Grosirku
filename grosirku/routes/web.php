@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //admin manage products
+    Route::get('/productList', [ProductController::class, 'productList']);
     Route::get('/products/create', [ProductController::class, 'create']);
     Route::post('/productStore', [ProductController::class, 'store']);
     Route::get('/products/{product}/edit', [ProductController::class, 'edit']);
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
     //admin manage transactions
     Route::get('/transactions', [TransactionController::class, 'index']);
     Route::put('/transactions/{transaction}', [TransactionController::class, 'update']);
+    //customer list
+    Route::get('/customers', [UserController::class, 'index']);
     //Keranjang
     Route::get('/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::post('/tambahKeranjang', [KeranjangController::class, 'addToCart'])->name('tambahKeranjang');

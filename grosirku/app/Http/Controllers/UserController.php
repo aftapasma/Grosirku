@@ -15,12 +15,11 @@ class UserController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
 
-            if ($userRole === 0) {
-                return view('admin.home');
+            if ($userRole === 'admin') {
+                $customer = User::all();
+                return view('admin.customer-list', ['customers' => $customer]);
             }
-        } 
-        
-        return view('customer.home');
+        }    
     }
 
     /**

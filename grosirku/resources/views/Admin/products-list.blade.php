@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-  <x-navigation />
+  <x-sidenav />
 <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-md text-center">
-      <h2 class="font-serif text-2xl font-bold sm:text-3xl">Fresh Fruits &amp; Vegetables</h2>
-    </div>
-
     <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-16">
         @foreach ($products as $product)
         <article class="relative flex flex-col overflow-hidden rounded-lg border">
@@ -41,5 +40,8 @@
     @endforeach
     </div>
   </div>
+
+  <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 </html>
