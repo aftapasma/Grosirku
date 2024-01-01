@@ -36,25 +36,28 @@ class KeranjangController extends Controller
         if (auth()->check()) {
             $userRole = auth()->user()->role;
             $userId = auth()->user()->id;
-
-
-
             if ($userRole === 'customer') {
                         $productId = $request->input('product_id');
 
                         $isProductInCart = Cart::where('user_id', $userId)
                             ->where('product_id', $productId)
                             ->exists();
+                        $product = Product::where('id', $productId)->first();
+                        $isProductOnStock = $product && $product->stock === 0;
 
-                        if (!$isProductInCart) {
+                        if (!$isProductInCart && !$isProductOnStock) {
                             $formFields['user_id'] = $userId;
                             $formFields['product_id'] = $productId;
                             $formFields['quantity'] = 1;
 
                             Cart::create($formFields);
+                            $product->stock -= 1;
+                            $product->save();
 
                             return redirect()->back();
                         } else {
+                            $message = "Maaf produk yang anda pilih sudah habis, silahkan pilih produk lain :)";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
                             return redirect()->back();
                         }
                 }
@@ -64,19 +67,29 @@ class KeranjangController extends Controller
     public function increaseQuantity($id)
     {
         $carts = Cart::findOrFail($id);
-        $carts->quantity += 1;
-        $carts->save();
-
+        $product = Product::find($carts->product_id);
+        if ($product->stock >= $carts->quantity) {
+            $carts->quantity += 1;
+            $carts->save();
+            $product->stock -= 1;
+            $product->save();
+        } else {
+            $message = "Maaf permintaan sudah melebihi stok kami.";
+            echo "<script type='text/javascript'>alert('$message');</script>";
+        }
         return redirect()->back();
     }
 
     public function decreaseQuantity($id)
     {
         $carts = Cart::findOrFail($id);
+        $product = Product::find($carts->product_id);
 
         if ($carts->quantity > 1) {
             $carts->quantity -= 1;
             $carts->save();
+            $product->stock += 1;
+            $product->save();
         } else {
             $carts->delete();
         }
@@ -91,8 +104,11 @@ class KeranjangController extends Controller
     if (auth()->check()) {
         $userRole = auth()->user()->role;
         $carts = Cart::findOrFail($id);
+        $product = Product::find($carts->product_id);
 
         if ($userRole === 'customer') {
+            $product->stock += $carts->quantity;
+            $product->save();
             $carts->delete();
             return redirect()->back();
         }

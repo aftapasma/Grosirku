@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/hapusKeranjang/{id}', [KeranjangController::class, 'remove'])->name('hapusKeranjang');
     //Pembayaran
     Route::post('/pembayaran', [PembayaranController::class, 'checkout'])->name('pembayaran');
+    Route::get('/sukses', [KeranjangController::class, 'clearCart'])->name('sukses');
     //wishlist
     Route::get('/wishlists', [WishlistController::class, 'index']);
     Route::post('/wishlistStore', [WishlistController::class, 'store']);

@@ -51,7 +51,7 @@
         // Replace '/dashboard' with the actual URL of your dashboard
         window.location.href = '/sukses';
     }
-      </script>
+    </script>
 </body>
 
 </html>

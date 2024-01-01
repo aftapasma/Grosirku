@@ -13,6 +13,7 @@ class PembayaranController extends Controller
         $userId = auth()->user()->id;
         $orders = Cart::where('user_id', $userId)->get();
         $orders->load('product');
+        return redirect('/');
     }
     /**
      * Store a newly created resource in storage.
@@ -30,6 +31,10 @@ class PembayaranController extends Controller
             $product = \App\Models\Product::find($cart->product_id);
             $total_price += $cart->quantity * $product->price;
             $total = $cart->quantity * $product->price;
+            $product->stock -= $cart->quantity;
+            $product->save();
+            $product->sold += $cart->quantity;
+            $product->save();
 
             Transaction::create([
                 'user_id'     => $userId,
