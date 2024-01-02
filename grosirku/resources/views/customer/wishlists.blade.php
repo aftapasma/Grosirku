@@ -48,7 +48,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button aria-label="close"
-                                    class="top-2 right-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 absolute p-1.5 bg-gray-800 dark:bg-white dark:text-gray-800 text-white hover:text-gray-400">
+                                    class="top-2 right-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 absolute p-1.5 bg-gray-800 text-white hover:text-gray-400 rounded-md">
                                     <svg class="fil-current" width="14" height="14" viewBox="0 0 14 14" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M13 1L1 13" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
@@ -67,7 +67,7 @@
                             </div>
                             <div class="mt-4">
                                 <form action="/products/{{$wishlist->product_id}}">
-                                    <button class="focus:outline-none focus:ring-gray-800 focus:ring-offset-2 focus:ring-2 text-white px-4 py-2 text-lg leading-4 hover:bg-black bg-gray-800 border border-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-black">Lihat produk</button>
+                                    <button class="focus:outline-none focus:ring-gray-800 focus:ring-offset-2 focus:ring-2 text-white px-4 py-2 text-lg leading-4 hover:bg-black bg-gray-800 border border-gray-800 rounded-md">Lihat produk</button>
                                 </form>
                             </div>
                         </div>
