@@ -45,149 +45,81 @@
                             <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Status</p>
                          </th>
                          <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                            <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Total</p>
+                           <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Jumlah Produk</p>
+                        </th>
+                         <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+                            <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Total Harga</p>
                          </th>
+                         @foreach($transactions as $transaction)
+                           @if (in_array($transaction->status, ['menunggu verifikasi', 'diproses']))
+                           <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+                              <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Aksi</p>
+                           </th>
+                              @break
+                           @endif
+                        @endforeach
                          <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                             <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70"></p>
                          </th>
                       </tr>
                       </thead>
                       <tbody>
+                        @foreach($transactions as $transaction)
+                           @php
+                              $product = \App\Models\Product::find($transaction->product_id);
+                              $user = \App\Models\User::find($transaction->user_id);
+                           @endphp
                       <tr>
                          <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">1</p>
+                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{{$user->id}}</p>
                          </td>
                          <td class="p-4 border-b border-blue-gray-50">
                             <div class="flex items-center gap-3">
-                            <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">Spotify</p>
-                            </div>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <div class="w-max">
-                            <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
-                               <span class="">selesai</span>
-                            </div>
-                            </div>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">$1</p>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <button class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:bg-gray-900/10 active:bg-gray-900/20" type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
-                                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
-                               </svg>
-                            </span>
-                            </button>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">1</p>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <div class="flex items-center gap-3">
-                            <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">Spotify</p>
-                            </div>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <div class="w-max">
-                            <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-amber-500/20 text-amber-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
-                               <span class="">pending</span>
-                            </div>
-                            </div>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">$1</p>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <button class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:bg-gray-900/10 active:bg-gray-900/20" type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
-                                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
-                               </svg>
-                            </span>
-                            </button>
-                         </td>
-                      </tr>
-                      <tr>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">1</p>
-                         </td>
-                         <td class="p-4 border-b border-blue-gray-50">
-                            <div class="flex items-center gap-3">
-                            <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">Spotify</p>
+                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">{{$user->name}}</p>
                             </div>
                          </td>
                          <td class="p-4 border-b border-blue-gray-50">
                             <div class="w-max">
                             <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
-                               <span class="">cancelled</span>
+                               <span class="">{{$transaction->status}}</span>
                             </div>
                             </div>
                          </td>
                          <td class="p-4 border-b border-blue-gray-50">
-                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">$1</p>
+                           <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{{$transaction->quantity}}</p>
+                        </td>
+                         <td class="p-4 border-b border-blue-gray-50">
+                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">Rp {{$transaction->total_price}}</p>
                          </td>
                          <td class="p-4 border-b border-blue-gray-50">
-                            <button class="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:bg-gray-900/10 active:bg-gray-900/20" type="button">
-                            <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
-                                  <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
-                               </svg>
-                            </span>
-                            </button>
+                           @if (in_array($transaction->status, ['menunggu verifikasi', 'diproses']))
+                           <form action="/transactions/{{$transaction->id}}" method="post">
+                               @csrf
+                               @method('PUT')
+                               @if ($transaction->status === 'menunggu verifikasi')
+                                   <input type="text" name="status" style="display: none" value="diproses">
+                                   <div class="w-max">
+                                    <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+                                       <span class=""><button>diproses</button></span>
+                                    </div>
+                                    </div>
+                               @elseif($transaction->status === 'diproses')
+                                   <input type="text" name="status" style="display: none" value="dikirim">
+                                   <div class="w-max">
+                                    <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+                                       <span class=""><button>dikirim</button></span>
+                                    </div>
+                                    </div>
+                               @endif
+                           </form>
+                       @endif
                          </td>
                       </tr>
+                      @endforeach
                       </tbody>
                    </table>
                 </div>
              </div>
-    <table>
-        <tr>
-            <th>Nama</th>
-            <th>Produk</th>
-            <th>Jumlah</th>
-            <th>Status</th>
-            @foreach($transactions as $transaction)
-                @if (in_array($transaction->status, ['menunggu verifikasi', 'diproses']))
-                    <th>Edit status</th>
-                    @break
-                @endif
-            @endforeach
-        </tr>
-        @foreach($transactions as $transaction)
-            @php
-                $product = \App\Models\Product::find($transaction->product_id);
-                $user = \App\Models\User::find($transaction->user_id);
-            @endphp
-            <tr>
-                <td>{{$user->name}}</td>
-                <td>{{$product->name}}</td>
-                <td>{{$transaction->quantity}}</td>
-                <td>{{$transaction->status}}</td>
-                <td>
-                    @if (in_array($transaction->status, ['menunggu verifikasi', 'diproses']))
-                        <form action="/transactions/{{$transaction->id}}" method="post">
-                            @csrf
-                            @method('PUT')
-                            @if ($transaction->status === 'menunggu verifikasi')
-                                <input type="text" name="status" style="display: none" value="diproses">
-                                <button>diproses</button>
-                            @elseif($transaction->status === 'diproses')
-                                <input type="text" name="status" style="display: none" value="dikirim">
-                                <button>dikirim</button>
-                            @endif
-                        </form>
-                    @endif
-                </td>
-            </tr>
-        @endforeach
-    </table>
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-14">
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
