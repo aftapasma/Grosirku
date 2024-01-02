@@ -42,12 +42,12 @@
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Kategori</h2>
         <div class="grid grid-cols-3 gap-3">
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
+                <img src="{{asset('storage/images/iUxOG7blU5a5w4LUNxzlQhFgb8elsKFx4C2ENUcS.jpg')}}" alt="category 1" class="w-full">
                 <a href="/products/?category=gula pasir"
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Gula pasir</a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
+                <img src="{{asset('storage/images/t1cCERcwaQovKtxSvuEjd4MWJf6q1AOnb8CYTm1n.png')}}" alt="category 1" class="w-full">
                 <a href="#"
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Minyak goreng</a>
             </div>
@@ -114,19 +114,19 @@
     <div class="container py-16">
         <div class="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
             <div class="bg-sky-100 rounded-[20px] px-3 py-6 flex justify-center items-center gap-5">
-                <img src="assets/images/icons/delivery-van.svg" alt="Delivery" class="w-12 h-12 object-contain">
+                <img src="{{asset('storage/images/box-tick.png')}}" alt="Delivery" class="w-12 h-12 object-contain">
                 <div>
                     <h4 class="font-medium capitalize text-lg">Gratis Pengiriman</h4>
                 </div>
             </div>
             <div class="bg-sky-100 rounded-[20px] px-3 py-6 flex justify-center items-center gap-5">
-                <img src="assets/images/icons/money-back.svg" alt="Delivery" class="w-12 h-12 object-contain">
+                <img src="{{asset('storage/images/crown.png')}}" alt="Delivery" class="w-12 h-12 object-contain">
                 <div>
                     <h4 class="font-medium capitalize text-lg">Kualitas Produk Terjamin</h4>
                 </div>
             </div>
             <div class="bg-sky-100 rounded-[20px] px-3 py-6 flex justify-center items-center gap-5">
-                <img src="assets/images/icons/service-hours.svg" alt="Delivery" class="w-12 h-12 object-contain">
+                <img src="{{asset('storage/images/shield-security.png')}}" alt="Delivery" class="w-12 h-12 object-contain">
                 <div>
                     <h4 class="font-medium capitalize text-lg">Terpecaya</h4>
 
@@ -137,29 +137,7 @@
     <!-- ./features -->
 
     <!-- footer -->
-    <footer class="bg-sky-100 pt-16 pb-12 border-t border-gray-100">
-        <div class="container grid grid-cols-1 ">
-            <div class="col-span-1 space-y-4">
-                <img src="assets/images/logo.svg" alt="logo" class="w-30">
-                <div class="mr-2">
-                    <p class="text-gray-500">
-                        Desa Pinang Merah, Kec.Pamenang Barat, Kab Merangin, Jambi
-                    </p>
-                    <div class="float-right">
-                        <p class="text-gray-500">
-                            Kontak kami :
-                            0838lainnyakapankapan
-                        </p>
-                    </div>
-                </div>
-                <div class="flex space-x-5">
-                    <a href="#" class="text-gray-400 hover:text-gray-500"><i
-                            class="fa-brands fa-facebook-square"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-gray-500"><i
-                            class="fa-brands fa-instagram-square"></i></a>
-                </div>
-            </div>
-    </footer>
+    <x-footer />
     <!-- ./footer -->
 </body>
 </html>

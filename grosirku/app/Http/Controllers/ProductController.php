@@ -93,8 +93,6 @@ class ProductController extends Controller
                 return view('admin.add-product');
             }
         }
-
-        // return redirect('/');
     }
 
     public function store(Request $request) {
@@ -118,12 +116,9 @@ class ProductController extends Controller
         
                 Product::create($formFields);
         
-                return redirect('/');
+                return redirect()->back();
             }
         } 
-
-        // return redirect('/');
-        
     }
 
     public function edit(Product $product) {
@@ -134,8 +129,6 @@ class ProductController extends Controller
                 return view('admin.edit-product', ['product' => $product]);
             }
         }
-
-        // return redirect('/');
     }
 
     public function update(Request $request, Product $product) {
@@ -157,11 +150,9 @@ class ProductController extends Controller
         
                 $product->update($formFields);
         
-                return redirect('/products/' . $product->id);
+                return redirect('/productList');
             }
-        } 
-        
-        // return redirect('/');
+        }   
     }
 
     public function destroy(Product $product) {
@@ -170,10 +161,8 @@ class ProductController extends Controller
 
             if ($userRole === 'admin') {
                 $product->delete();
-                return redirect('/');
+                return redirect()->back();
             }
         }
-
-        // return redirect('/');
     }
 }

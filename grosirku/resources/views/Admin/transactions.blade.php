@@ -100,14 +100,14 @@
                                    <input type="text" name="status" style="display: none" value="diproses">
                                    <div class="w-max">
                                     <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
-                                       <span class=""><button>diproses</button></span>
+                                       <span class=""><button>DIPROSES</button></span>
                                     </div>
                                     </div>
                                @elseif($transaction->status === 'diproses')
                                    <input type="text" name="status" style="display: none" value="dikirim">
                                    <div class="w-max">
                                     <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
-                                       <span class=""><button>dikirim</button></span>
+                                       <span class=""><button>DIKIRIM</button></span>
                                     </div>
                                     </div>
                                @endif
