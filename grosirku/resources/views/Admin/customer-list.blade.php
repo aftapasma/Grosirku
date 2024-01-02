@@ -52,7 +52,6 @@
                         @foreach($customers as $customer)
                         <td class="border-blue-gray-50 border-b p-4">
                           <div class="flex items-center gap-3">
-                            <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="gambar" class="border-blue-gray-50 bg-blue-gray-50/50 relative inline-block h-12 w-12 !rounded-full rounded-lg border object-contain object-center p-1" />
                             <p class="text-blue-gray-900 block font-sans text-sm font-bold leading-normal antialiased">{{$customer->name}}</p>
                           </div>
                         </td>
