@@ -52,13 +52,19 @@
                               FOTO
                         </th>
                         <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
-                              Product Name
+                              Nama Produk
                         </th>
                         <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                               Kategori
                         </th>
                         <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                               Harga
+                        </th>
+                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                              Stok
+                        </th>
+                        <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                              Terjual
                         </th>
                         <th scope="col" class="p-4">
                               <span class="sr-only">Edit</span>
@@ -69,56 +75,36 @@
                      </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <td class="p-4 w-4">
+                    @foreach ($products as $product)
+                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">  
+                          <td class="p-4 w-4">
                               <div class="flex items-center">
-                              <img class="h-auto max-w-lg rounded-lg" src="" alt="barang">
+                              <img class="h-auto max-w-lg rounded-lg" src="{{$product->image ? asset('storage/' . $product->image) : asset('storage/images/logo_grosirku.png')}}" alt="barang">
                               </div>
                         </td>
-                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">Apple Imac 27"</td>
-                        <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">12</td>
-                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">RP1999</td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->name}}</td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white">{{$product->category}}</td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->price}}</td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->stock}}</td>
+                        <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->sold}}</td>
                         <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                              <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                              <a href="/products/{{$product->id}}/edit" class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                         </td>
                         <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                          <a href="#" class="text-red-600 dark:text-blue-500 hover:underline">Hapus</a>
+                          <form action="/products/{{$product->id}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="text-red-600 dark:text-blue-500 hover:underline">Hapus</button>
+                        </form>
                     </td>
-                     </tr>
+                    
+                  </tr>
+                  @endforeach
                   </tbody>
             </table>
          </div>
       </div>
     </div>
-<div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-    <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4 lg:mt-16">
-        @foreach ($products as $product)
-        <article class="relative flex flex-col overflow-hidden rounded-lg border">
-          <div class="aspect-square overflow-hidden">
-            <img class="h-full w-full object-cover transition-all duration-300 group-hover:scale-125" src="{{$product->image ? asset('storage/' . $product->image) : 'https://picsum.photos/200/100'}}" alt="">
-          </div>
-          <div class="my-4 mx-auto flex w-10/12 flex-col items-start justify-between">
-            <div class="mb-2 flex">
-              <p class="mr-3 text-sm font-semibold">{{$product->price}}</p>
-            </div>
-            <h3 class="mb-2 text-sm text-gray-400">{{$product->name}}</h3>
-          </div>
-          {{-- <button class="group mx-auto mb-2 flex h-10 w-10/12 items-stretch overflow-hidden rounded-md text-gray-600">
-            <div class="flex w-full items-center justify-center bg-gray-100 text-xs uppercase transition group-hover:bg-emerald-600 group-hover:text-white">Add</div>
-            {{-- <div class="flex items-center justify-center bg-gray-200 px-5 transition group-hover:bg-emerald-500 group-hover:text-white">+</div> --}}
-          {{-- </button> --}}
-        </article>
-        {{-- <x-product-card :product="$product" /> --}}
-    <a href="/products/{{$product->id}}/edit">edit</a>
-
-        <form action="/products/{{$product->id}}" method="post">
-          @csrf
-          @method('DELETE')
-          <button>delete</button>
-      </form>
-    @endforeach
-    </div>
-  </div>
   </div>
 </div>
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
