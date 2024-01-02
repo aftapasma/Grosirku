@@ -45,7 +45,7 @@
             </div>
         </div>
         
-
+<x-footer />
         <!-- ./products -->
     </div>
     <!-- ./shop wrapper -->
