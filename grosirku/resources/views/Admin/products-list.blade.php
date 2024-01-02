@@ -79,7 +79,7 @@
                      <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">  
                           <td class="p-4 w-4">
                               <div class="flex items-center">
-                              <img class="h-auto max-w-lg rounded-lg" src="{{$product->image ? asset('storage/' . $product->image) : asset('storage/images/logo_grosirku.png')}}" alt="barang">
+                              <img class=" max-w-lg rounded-lg relative inline-block h-12 w-12" src="{{$product->image ? asset('storage/' . $product->image) : asset('storage/images/logo_grosirku.png')}}" alt="barang">
                               </div>
                         </td>
                         <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">{{$product->name}}</td>
