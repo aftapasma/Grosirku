@@ -7,19 +7,24 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-label class="mb-2" for="email" :value="__('Email')" />
+            <input type="email" name="email" id="email" :value="old('email')" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 
+            focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+            dark:focus:border-blue-500" placeholder="nama@email.com" required autofocus autocomplete="username">
+            {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" /> --}}
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-input-label class="mb-2" for="password" :value="__('Password')" />
+            <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 
+            focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+            dark:focus:border-blue-500" placeholder="password" required autofocus autocomplete="current-password">
+            {{-- <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="current-password" />
+                            required autocomplete="current-password" /> --}}
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -33,15 +38,19 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
+            {{-- @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
-            @endif
+            @endif --}}
 
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <br>
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+            Tidak Punya akun? <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline text-blue-600">Daftar</a>
+        </p>
     </form>
 </x-guest-layout>
