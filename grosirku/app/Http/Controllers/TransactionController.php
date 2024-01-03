@@ -13,7 +13,12 @@ class TransactionController extends Controller
             $userId = auth()->user()->id;
 
             if ($userRole === 'admin') {
-                return view('admin.transactions', ['transactions' => Transaction::orderBy('id')->get()]);
+                $transactions = Transaction::filter(request()->only('search'))
+                ->orderByDesc('id')
+                ->with('user')
+                ->get();
+
+                return view('admin.transactions', ['transactions' => $transactions]);
             } else {
                 $transactions = Transaction::where('user_id', $userId)->get();
                 $transactions->load('product');

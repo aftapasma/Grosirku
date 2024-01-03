@@ -29,4 +29,16 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
+    public function scopeFilter($query, array $filters) {
+        if ($filters['search'] ?? false) {
+            $query->whereHas('user', function ($query) {
+                $query->where('name', 'like', '%' . request('search') . '%');
+            });
+        }
+    }
 }

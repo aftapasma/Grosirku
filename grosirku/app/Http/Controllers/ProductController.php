@@ -46,7 +46,12 @@ class ProductController extends Controller
     }
 
     public function productList() {
-                return view('admin.products-list', ['products' => Product::inRandomOrder()->get()]);
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+            if ($userRole === 'admin') {
+                return view('admin.products-list', ['products' => Product::inRandomOrder()->filter(request(['category', 'search']))->get()]);
+            }
+        }
     }
 
     public function shop(Request $request)

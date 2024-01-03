@@ -138,7 +138,7 @@
                            </td>
                            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{{$product->name}}</td>
                            <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap">{{$product->category}}</td>
-                           <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{{$product->price}}</td>
+                           <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">Rp {{$product->price}}</td>
                            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{{$product->stock}}</td>
                            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">{{$product->sold}}</td>
                      </tr>
