@@ -38,9 +38,9 @@
                          <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                             <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Pelanggan</p>
                          </th>
-                         <!-- <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                            <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Date</p>
-                         </th> -->
+                         <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+                            <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Produk</p>
+                         </th>
                          <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                             <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">Status</p>
                          </th>
@@ -76,6 +76,11 @@
                          <td class="p-4 border-b border-blue-gray-50">
                             <div class="flex items-center gap-3">
                             <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">{{$user->name}}</p>
+                            </div>
+                         </td>
+                         <td class="p-4 border-b border-blue-gray-50">
+                            <div class="flex items-center gap-3">
+                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold">{{$product->name}}</p>
                             </div>
                          </td>
                          <td class="p-4 border-b border-blue-gray-50">

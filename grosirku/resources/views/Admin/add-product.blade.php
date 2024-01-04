@@ -60,7 +60,7 @@
                         <option value="Minyak Goreng">Minyak Goreng</option>
                         <option value="Gula">Gula</option>
                         <option value="Tepung">Tepung</option>
-                        <option value="Mie Instan">Mie Instan</option>
+                        <option value="Mi Instan">Mi Instan</option>
                         <option value="Snack">Snack</option>
                         <option value="Bumbu Dapur">Bumbu Dapur</option>
                       </select>

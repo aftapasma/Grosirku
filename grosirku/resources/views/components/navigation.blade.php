@@ -179,7 +179,6 @@
                 <div class="flex items-center space-x-6 capitalize">
                     <a href="/" class="text-gray-200 hover:text-white transition">Beranda</a>
                     <a href="/products" class="text-gray-200 hover:text-white transition">Belanja</a>
-                    <a href="#" class="text-gray-200 hover:text-white transition">Tentang Kami</a>
                 </div>
                 {{-- <a href="pages/login.html" class="text-gray-200 hover:text-white transition">Login</a> --}}
             </div>

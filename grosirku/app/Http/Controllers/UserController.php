@@ -16,7 +16,11 @@ class UserController extends Controller
             $userRole = auth()->user()->role;
 
             if ($userRole === 'admin') {
-                $customer = User::inRandomOrder()->filter(request(['search']))->get();
+                $customer = User::where('role', 'customer')
+                ->inRandomOrder()
+                ->filter(request(['search']))
+                ->get();
+                
                 return view('admin.customer-list', ['customers' => $customer]);
             }
         }    
