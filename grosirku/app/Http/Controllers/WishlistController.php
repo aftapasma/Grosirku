@@ -58,7 +58,7 @@ class WishlistController extends Controller
 
             if ($userRole === 'customer') {
                 $wishlist->delete();
-                return redirect('/');
+                return redirect()->back();
             }
         }
     }

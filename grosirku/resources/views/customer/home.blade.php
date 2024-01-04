@@ -42,35 +42,35 @@
         <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">Kategori</h2>
         <div class="grid grid-cols-3 gap-3">
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/iUxOG7blU5a5w4LUNxzlQhFgb8elsKFx4C2ENUcS.jpg')}}" alt="category 1" class="w-full">
-                <a href="/products/?category=gula pasir"
-                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Gula pasir</a>
+                <img src="{{asset('storage/images/Pemanis_Rendah_Kalori_Sebagai_Pengganti_Gula_Pasir,_Amankah-halodoc.jpg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=gula"
+                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Gula</a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/t1cCERcwaQovKtxSvuEjd4MWJf6q1AOnb8CYTm1n.png')}}" alt="category 1" class="w-full">
-                <a href="#"
-                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Minyak goreng</a>
+                <img src="{{asset('storage/images/055464900_1570621563-Mengungkap-Manfaat-Minyak-Goreng-untuk-Kesehatan-Tubuh-By-Tim-UR-Shutterstock.jpg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=minyak goreng"
+                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Minyak Goreng</a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
-                <a href="#"
+                <img src="{{asset('storage/images/3293a392fdf51b7899a755ee85d95131.jpg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=tepung"
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Tepung
                 </a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
-                <a href="#"
+                <img src="{{asset('storage/images/beras_1697301613.jpg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=beras"
                     class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Beras</a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
-                <a href="#"
-                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Mie Instan</a>
+                <img src="{{asset('storage/images/mi-instan-1_169.jpeg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=mi instan"
+                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Mi Instan</a>
             </div>
             <div class="relative rounded-sm overflow-hidden group">
-                <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="category 1" class="w-full">
-                <a href="#"
-                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Makanan Ringan</a>
+                <img src="{{asset('storage/images/peanut-butter-no-bake-cookies-1.jpg')}}" alt="category 1" class="w-full">
+                <a href="/products/?category=snack"
+                    class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">Snack</a>
             </div>
         </div>
     </div>
@@ -88,14 +88,6 @@
         </div>
     </div>
     <!-- Terlaris -->
-
-    <!-- ads -->
-    <div class="container pb-16">
-        <a href="#">
-            <img src="assets/images/offer.jpg" alt="ads" class="w-full">
-        </a>
-    </div>
-    <!-- ./ads -->
 
     <!-- rekomendasi -->
     <div class="container pb-16">

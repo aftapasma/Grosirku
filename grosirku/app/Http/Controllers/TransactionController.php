@@ -32,7 +32,7 @@ class TransactionController extends Controller
         if (auth()->check()) {
             $formFields['status'] = $request->status;
             $transaction->update($formFields);
-            return redirect('/transactions');
+            return redirect()->back();
         } 
     }
 }

@@ -2,7 +2,9 @@
 
 <div class="bg-white shadow rounded overflow-hidden group">
     <div class="relative">
-        <img src="{{$product->image ? asset('storage/' . $product->image) : asset('storage/images/logo_grosirku.png')}}" alt="{{$product->name}}" height="20px" class="w-full">
+        <div class="object-cover">
+            <img src="{{$product->image ? asset('storage/' . $product->image) : asset('storage/images/logo_grosirku.png')}}" alt="{{$product->name}}" class="h-60 mx-auto my-auto">
+        </div>
         <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
             <a href="/products/{{$product->id}}" class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
