@@ -1,4 +1,4 @@
-<footer class="bg-sky-100 pt-16 pb-12 border-t border-gray-100">
+<footer class="bg-sky-100 pt-16 pb-12 border-t border-gray-100 align-bottom">
     <div class="container grid grid-cols-1 ">
         <div class="col-span-1 space-y-4">
             <img src="{{asset('storage/images/logo_grosirku.png')}}" alt="logo" class="w-12">

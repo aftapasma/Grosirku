@@ -20,24 +20,33 @@
 <body>
     {{-- navbar --}}
     <header class="py-4 shadow-sm bg-white">
-        <div class="container flex items-center justify-between">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="{{asset('storage/images/logo_grosirku.png')}}" class="h-12 lg:h-24" alt="Grosirku Logo" />
+            </a>
             
-                <img src="../layouts/logo_grosirku.png" alt="" class="w-32">
             
             
-
             <div class="overflow-hidden z-0 rounded-full relative p-3">
                 <form action="/products/" role="form" class="relative flex z-50 ">
-                  <input type="text" name="search" placeholder="enter your search here" class="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
-                  <button class="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none">Search</button>
+                    <input type="text" name="search" placeholder="enter your search here" class="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" />
+                    <button class="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none">Search</button>
                 </form>
                 <div class="glow glow-1 z-10 animate-glow1 bg-pink-400 rounded-100 w-120 h-120 -top-10 -left-10 absolute"></div>
                 <div class="glow glow-2 z-20 animate-glow2 bg-purple-400 rounded-100 w-120 h-120 -top-10 -left-10 absolute"></div>
                 <div class="glow glow-3 z-30 animate-glow3 bg-yellow-400 rounded-100 w-120 h-120 -top-10 -left-10 absolute"></div>
                 <div class="glow glow-4 z-40 animate-glow4 bg-blue-400 rounded-100 w-120 h-120 -top-10 -left-10 absolute"></div>
             </div>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
 
-            <div class="flex items-center space-x-4">
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                <li>
                 <a href="/wishlists" class="text-center text-gray-700 hover:text-primary transition relative">
                     <div class="text-2xl">
                         <i class="fa-regular fa-heart"></i>
@@ -47,6 +56,8 @@
                         class="absolute right-0 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
                         8</div> --}}
                 </a>
+                </li>
+                <li>
                 <a href="/keranjang" class="text-center text-gray-700 hover:text-primary transition relative">
                     <div class="text-2xl">
                         <i class="fa-solid fa-bag-shopping"></i>
@@ -56,18 +67,29 @@
                         class="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
                         2</div> --}}
                 </a>
-
+                </li>
+                <a href="/transactions" class="text-center text-gray-700 hover:text-primary transition relative">
+                    <div class="text-2xl">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div class="text-xs leading-3">History belanja</div>
+                    {{-- <div
+                        class="absolute -right-3 -top-1 w-5 h-5 rounded-full flex items-center justify-center bg-primary text-white text-xs">
+                        2</div> --}}
+                </a>
+                <li>
                 @auth
             </a>
-            <a href="#" class="text-center text-gray-700 hover:text-primary transition relative">
+            <li>
+            <a href="#" class="text-center text-gray-700">
                 {{-- <div class="text-2xl">
                     <i class="fa-regular fa-user"></i>
                 </div>
                 <div class="text-xs leading-3">Account</div> --}}
-                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <div class="">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                            <button class="pt-4 inline-flex items-center border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
     
                                 <div class="ms-1">
@@ -96,7 +118,7 @@
                         </x-slot>
                     </x-dropdown>
             </a>
-
+            </li>
             @else
 
                 <a href="/login" class="text-center text-gray-700 hover:text-primary transition relative">
@@ -140,6 +162,7 @@
                 </a>
 
                 @endauth
+                </ul>
             </div>
         </div>
     </header> 
@@ -163,5 +186,7 @@
         </div>
     </nav>
     {{-- navbar --}}
+    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 </html>

@@ -99,7 +99,7 @@
                                @if ($transaction->status === 'menunggu verifikasi')
                                    <input type="text" name="status" style="display: none" value="diproses">
                                    <div class="w-max">
-                                    <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-red-500/20 text-red-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
+                                    <div class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-amber-500/20 text-amber-900 py-1 px-2 text-xs rounded-md" style="opacity: 1;">
                                        <span class=""><button>DIPROSES</button></span>
                                     </div>
                                     </div>
@@ -122,7 +122,12 @@
              </div>
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-14">
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+   <script>
+   function pungsi() {
+      document.getElementById("diproses").style.color = "#ff0000";
+   }   
+   </script>      
+   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 </html>
