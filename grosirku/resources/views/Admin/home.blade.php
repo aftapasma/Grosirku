@@ -14,20 +14,6 @@
     {{-- isian --}}
 <div class="p-4 sm:ml-64">
    <div class="p-4 mt-14">
-       <div class="grid grid-cols-3 gap-4 mb-4">
-          <div class="flex items-center justify-center h-24 rounded bg-blue-100 border-2 border-black">
-             <p class="text-2xl text-gray-400">
-             </p>
-          </div>
-          
-          <div class="flex items-center justify-center h-24 rounded bg-gray-50">
-             <p class="text-2xl text-gray-400">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
-       </div>
        <div class="flex items-center p-2 text-gray-50 text-xl">
             <span class="ms-3">Pesanan terbaru</span>
        </div>
