@@ -147,7 +147,6 @@ class ProductController extends Controller
                     'stock' => 'required',
                     'price' => 'required',
                     'category' => 'required',
-                    'image' => 'required'
                 ]);
         
                 if ($request->hasFile('image')) {

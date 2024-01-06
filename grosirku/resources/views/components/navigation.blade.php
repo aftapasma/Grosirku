@@ -21,7 +21,7 @@
     {{-- navbar --}}
     <header class="py-4 shadow-sm bg-white">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{asset('storage/images/logo_grosirku.png')}}" class="h-12 lg:h-24" alt="Grosirku Logo" />
             </a>
             
@@ -82,14 +82,10 @@
             </a>
             <li>
             <a href="#" class="text-center text-gray-700">
-                {{-- <div class="text-2xl">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="text-xs leading-3">Account</div> --}}
-                <div class="">
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="pt-4 inline-flex items-center border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                            <button class="px-3 py-2 inline-flex items-center border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
     
                                 <div class="ms-1">
