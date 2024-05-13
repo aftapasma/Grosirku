@@ -17,13 +17,11 @@
                 <input type="hidden" name="product_id" value="{{$product->id}}">
                 <button type="submit"><i class="fa-solid fa-heart"></i></button>
             </form>
-
-
         </div>
         </div>
     </div>
     <div class="pt-4 pb-3 px-4">
-        <a href="#">
+        <a href="/products/{{$product->id}}">
             <h4 class="font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">{{$product->name}}</h4>
         </a>
         <div class="flex items-baseline mb-1 space-x-2">

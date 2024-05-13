@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-600 text-slate-500">
-    <x-sidenav />
+<x-admin-layout>
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-14">
             <form action="/customers/" class="p-4">
@@ -68,22 +56,10 @@
                         <td class="border-blue-gray-50 border-b p-4">
                           <p class="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">{{$customer->address}}</p>
                         </td>
-                        {{-- <td class="border-blue-gray-50 border-b p-4">
-                          <button class="relative h-10 max-h-[40px] w-10 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-gray-900 transition-all hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-                            <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4">
-                                <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z"></path>
-                              </svg>
-                            </span>
-                          </button>
-                        </td> --}}
                       </tr>
                       @endforeach
                     </tbody>
                   </table>
                 </div>
               </div>
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-</body>
-</html>
+            </x-admin-layout>

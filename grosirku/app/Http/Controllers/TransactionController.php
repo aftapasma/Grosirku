@@ -20,7 +20,7 @@ class TransactionController extends Controller
 
                 return view('admin.transactions', ['transactions' => $transactions]);
             } else {
-                $transactions = Transaction::where('user_id', $userId)->get();
+                $transactions = Transaction::where('user_id', $userId)->orderByDesc('id')->get();
                 $transactions->load('product');
 
                 return view('customer.transactions', ['transactions' => $transactions]);

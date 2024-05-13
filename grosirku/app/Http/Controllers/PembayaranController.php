@@ -27,7 +27,9 @@ class PembayaranController extends Controller
         $carts->load('product');
         $total_price = 0;
         $total = 0;
-        foreach ($carts as $cart) {
+
+        if ($carts->isNotEmpty()) {
+            foreach ($carts as $cart) {
             $product = \App\Models\Product::find($cart->product_id);
             $total_price += $cart->quantity * $product->price;
             $total = $cart->quantity * $product->price;
@@ -72,6 +74,9 @@ class PembayaranController extends Controller
         );
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         return view('Pembayaran.pembayaran', compact('snapToken', 'orders', 'transactions', 'carts', 'params', 'total_price'));
+        } else {
+            return redirect()->back();
+        } 
     }
 
 

@@ -42,7 +42,7 @@
         <!-- No telp -->
         <div class="mt-4">
             <x-input-label for="telp" :value="__('No Telepon')" />
-            <x-text-input id="telp" class="block mt-1 w-full" type="text" name="telp" :value="old('telp')" required autocomplete="username" />
+            <x-text-input id="telp" class="block mt-1 w-full [&::-webkit-inner-spin-button]:appearance-none" type="number" name="telp" :value="old('telp')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('telp')" class="mt-2" />
         </div>
 

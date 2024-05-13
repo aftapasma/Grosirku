@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript"
-      src="https://app.sandbox.midtrans.com/snap/snap.js"
-      data-client-key="{{config('app.client_key')}}"></script>
-      @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Detail pesanan</title>
-</head>
-
-<body>
-    <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
+<x-customer-layout>
+    <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32 py-12">
         <div class="px-4 pt-8">
             <a href="/keranjang">
-            <button type="button" class="mb-6 w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-200 transition-colors duration-200 bg-blue-500 border rounded-lg gap-x-2 sm:w-auto ">
+            <button type="button" class="mb-6 w-full flex items-center justify-center px-5 py-2 text-sm text-gray-200 transition-colors duration-200 bg-blue-500 border rounded-lg gap-x-2 sm:w-auto ">
                 <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
                 </svg>
@@ -61,6 +47,7 @@
         </div>
 
     </div>
+</x-customer-layout>
   <script type="text/javascript">
     // For example trigger on button clicked, or any time you need
     var payButton = document.getElementById('pay-button');
@@ -91,5 +78,3 @@
     window.location.href = '/sukses';
 }
 </script>
-</body>
-</html>
